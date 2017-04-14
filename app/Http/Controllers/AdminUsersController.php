@@ -97,6 +97,7 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return"this is update";
     }
 
     /**

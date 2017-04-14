@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
-                    <td><img height="60px" src="{{$user->photo ? $user->photo->file :''}}" alt="">{{!$user->photo?'no photo':"" }}</td>
+                    <td><img height="60px" src="{{$user->photo ? $user->photo->file :'/images/person-placeholder.jpg'}}" alt=""></td>
                     <td>{{$user->role->name}}</td>
                     <td>{{$user->is_active==1?'Active':'Not Active'}}</td>
                     <td>{{$user->email}}</td>
