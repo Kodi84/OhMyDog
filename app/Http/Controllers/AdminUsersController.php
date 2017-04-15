@@ -59,7 +59,6 @@ class AdminUsersController extends Controller
         $input['password']=bcrypt($request->password);
         User::create($input);
         return redirect('admin/users');
-
     }
 
     /**
@@ -97,11 +96,16 @@ class AdminUsersController extends Controller
      */
     public function update(UsersEditRequest $request, $id)
     {
-        //
         $user = User::findOrFail($id);
-        $input = $request->all();
         $file = $request -> file('photo_id');
 
+        if(trim($request->password) == ""){
+            //everything except password
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password']=bcrypt($request->password);
+        }
         if($file){
             $name = time(). $file->getClientOriginalName();
             $file->move('images',$name);
@@ -109,20 +113,21 @@ class AdminUsersController extends Controller
             if($user->photo_id == ""){
                 $photo = Photo::create(['file'=>$name]);
             }else {
-                //if image already existed, then REPLACE it.
+                //delete file in FOLDER if its duplicated
+                if (file_exists($filename = public_path() . $user->photo->file)) {
+                    unlink($filename);
+                }
+                //if image already existed, then REPLACE it in DB.
                 $existedPhotoId = $user->photo_id;
                 $photo = Photo::findOrFail($existedPhotoId);
                 $photo->update(['file'=>$name]);
-            }
 
+            }
             //once it's created get photo_id
             $input['photo_id'] = $photo->id;
         }
-        $input['password']=bcrypt($request->password);
         $user->update($input);
         return redirect('admin/users');
-
-
     }
 
     /**
