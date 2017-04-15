@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
 use App\Role;
@@ -94,10 +95,34 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
         //
-        return"this is update";
+        $user = User::findOrFail($id);
+        $input = $request->all();
+        $file = $request -> file('photo_id');
+
+        if($file){
+            $name = time(). $file->getClientOriginalName();
+            $file->move('images',$name);
+            //check if User doesnt have image. then CREATE one
+            if($user->photo_id == ""){
+                $photo = Photo::create(['file'=>$name]);
+            }else {
+                //if image already existed, then REPLACE it.
+                $existedPhotoId = $user->photo_id;
+                $photo = Photo::findOrFail($existedPhotoId);
+                $photo->update(['file'=>$name]);
+            }
+
+            //once it's created get photo_id
+            $input['photo_id'] = $photo->id;
+        }
+        $input['password']=bcrypt($request->password);
+        $user->update($input);
+        return redirect('admin/users');
+
+
     }
 
     /**
