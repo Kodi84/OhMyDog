@@ -115,10 +115,9 @@ class AdminUsersController extends Controller
             if($user->photo_id == ""){
                 $photo = Photo::create(['file'=>$name]);
             }else {
-                //delete file in FOLDER if its duplicated
-                if (file_exists($filename = public_path() . $user->photo->file)) {
-                    unlink($filename);
-                }
+                //delete file in FOLDER
+                    unlink (public_path() . $user->photo->file);
+
                 //if image already existed, then REPLACE it in DB.
                 $existedPhotoId = $user->photo_id;
                 $photo = Photo::findOrFail($existedPhotoId);
@@ -145,6 +144,9 @@ class AdminUsersController extends Controller
     {
         //
         $user = User::findOrFail($id);
+        if($user->photo_id !== ""){
+            unlink(public_path().$user->photo->file);
+        }
         $user->delete();
         $user->photo()->delete();
         Session::flash('deleted_user', 'User ' . $user->name . ' has been deleted !');
