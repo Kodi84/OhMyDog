@@ -6,6 +6,7 @@
     <table class="table">
         <thead>
           <tr>
+            <th>id</th>
             <th>user</th>
             <th>category</th>
             <th>photo</th>
@@ -19,9 +20,10 @@
         @if($posts)
             @foreach($posts As $posts)
                 <tr>
-                    <td>{{$posts->user_id}}</td>
+                    <td>{{$posts->id}}</td>
+                    <td>{{$posts->user->name}}</td>
                     <td>{{$posts->category_id}}</td>
-                    <td>{{$posts->photo_id}}</td>
+                    <td><img height="60px" src="{{$posts->photo_id ? $posts->photo->file :'/images/person-placeholder.jpg'}}" alt=""></td>
                     <td>{{$posts->title}}</td>
                     <td>{{$posts->body}}</td>
                     <td>{{$posts->created_at->diffForHumans()}}</td>
