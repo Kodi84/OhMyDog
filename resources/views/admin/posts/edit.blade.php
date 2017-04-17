@@ -30,14 +30,16 @@
                 {!! Form::submit('Update',['class'=>'btn btn-primary col-sm-6']) !!}
             </div>
             {!! Form::close() !!}
+
+            {{--//DELETE--}}
+            {!! Form::open(['method'=>'DELETE','action'=>['AdminPostsController@destroy',$post->id]]) !!}
+            <div class="form-group">
+                {!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}
+            </div>
+            {!! Form::close() !!}
         </div>
     </div>
-            {{--//DELETE--}}
-            {{--{!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}--}}
-            {{--<div class="form-group">--}}
-                {{--{!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}--}}
-            {{--</div>--}}
-            {{--{!! Form::close() !!}--}}
+
 @endsection
 
 
