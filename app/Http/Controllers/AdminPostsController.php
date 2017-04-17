@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\CreatePostsRequest;
 use App\Photo;
 use App\Post;
@@ -33,7 +34,9 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+        $category = Category::lists('name','id')->all();
+
+        return view('admin.posts.create',compact('category'));
 
     }
 
@@ -80,6 +83,10 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $categories = Category::lists('name','id');
+
+        return view ('admin.posts.edit',compact ('post','categories'));
     }
 
     /**
@@ -92,7 +99,32 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        $input = $request->all();
+        $file = $request->file('photo_id');
+        if ($file) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            if ($post->photo_id == 0) {
+                $photo = Photo::create(['file' => $name]);
+            } else {
+                //delete file in FOLDER
+                unlink(public_path() . $post->photo->file);
+
+                //if image already existed, then REPLACE it in DB.
+                $existedPhotoId = $post->photo_id;
+                $photo = Photo::findOrFail($existedPhotoId);
+                $photo->update(['file' => $name]);
+            }
+            $input['photo_id'] = $photo->id;
+        }
+
+        $post->update($input);
+        return redirect('admin/posts');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

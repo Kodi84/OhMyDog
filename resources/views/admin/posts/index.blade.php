@@ -14,6 +14,7 @@
             <th>body</th>
             <th>created</th>
             <th>updated</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -22,12 +23,13 @@
                 <tr>
                     <td>{{$posts->id}}</td>
                     <td>{{$posts->user->name}}</td>
-                    <td>{{$posts->category_id}}</td>
-                    <td><img height="60px" src="{{$posts->photo_id ? $posts->photo->file :'/images/person-placeholder.jpg'}}" alt=""></td>
+                    <td>{{$posts->category ? $posts->category->name : "Uncategorized" }}</td>
+                    <td><img height="50px" src="{{$posts->photo_id ? $posts->photo->file :'/images/postplaceholder.jpg'}}" alt=""></td>
                     <td>{{$posts->title}}</td>
                     <td>{{$posts->body}}</td>
                     <td>{{$posts->created_at->diffForHumans()}}</td>
                     <td>{{$posts->updated_at->diffForHumans()}}</td>
+                    <td><a href="{{route('admin.posts.edit',$posts->id)}}">Edit</a></td>
                 </tr>
             @endforeach
         @endif

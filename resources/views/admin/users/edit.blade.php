@@ -47,11 +47,6 @@
             {!! Form::close() !!}
 
         </div>
-
-
-
-
-
     </div>
     <div class="row">
         @include('includes.display_errors')
