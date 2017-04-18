@@ -20,6 +20,10 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+
+            //delete User with relation using cascade
+            //Once User is deleted, all post related to that User also get deleted
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
