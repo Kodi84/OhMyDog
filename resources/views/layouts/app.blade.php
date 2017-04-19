@@ -51,7 +51,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="{{ url('/admin/users') }}">Admin</a></li>
+                    <li><a href="{{ url('/admin') }}">Admin</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
