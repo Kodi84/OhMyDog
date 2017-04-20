@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\CommentReply;
 use App\Http\Requests\CreatePostsRequest;
 use App\Photo;
 use App\Post;

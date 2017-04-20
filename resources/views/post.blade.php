@@ -1,9 +1,6 @@
-@extends('layouts.blog-post');
+@extends('layouts.blog-post')
 
-
-
-@section('content');
-
+@section('content')
 <div class="col-lg-8">
 
     @if(Session::has('reply_message'))
@@ -75,56 +72,56 @@
                         </h4>
                         <p>{{$comment->body}}</p>
 
+                    @if(count($comment->replies) > 0 )
+                        @foreach($comment->replies As $reply)
+                            @if($reply->is_active == 1 )
 
                     <!-- Nested Comment -->
-
-                        @if(count($comment->replies) > 0)
-                        @foreach($comment->replies As $reply)
-                        <div class="media nested_comment">
-                            <a class="pull-left" href="#">
-                                <img height="64px" class="media-object" src="{{$reply->photo}}" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">
-                                    {{$reply->author}}
-                                    <small>{{$reply->created_at->diffForHumans()}}</small>
-                                </h4>
-                                <p>{{$reply->body}}</p>
-                            </div>
-                        </div>
+                                <div class="media nested_comment">
+                                    <a class="pull-left" href="#">
+                                        <img height="64px" class="media-object" src="{{$reply->photo}}" alt="">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            {{$reply->author}}
+                                            <small>{{$reply->created_at->diffForHumans()}}</small>
+                                        </h4>
+                                        <p>{{$reply->body}}</p>
+                                    </div>
+                                    <div class="comment-reply-container">
+                                        <button class="toggle-reply btn">Click to expand</button>
+                                        <div class="comment-reply">
+                                            {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply']) !!}
+                                                <div class="form-group">
+                                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                                    {!! Form::textarea('body',null,['class'=>'form-control','rows'=>3]) !!}
+                                                </div>
+                                                <div class="form-group">
+                                                    {!! Form::submit('Reply',['class'=>'btn btn-primary pull-right']) !!}
+                                                </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    <!-- End Nested Comment -->
+                                    </div>
+                                </div>
+                            @endif
                         @endforeach
-                            <div class="toggle-reply btn">Click to reply</div>
-                        @endif
-                        <div class="comment-reply">
-                            {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply']) !!}
-                            <div class="form-group">
-                                <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                                {!! Form::textarea('body',null,['class'=>'form-control','rows'=>3]) !!}
-                            </div>
-                            <div class="form-group">
-                                {!! Form::submit('Reply',['class'=>'btn btn-primary pull-right']) !!}
-                            </div>
-                        {!! Form::close() !!}
-                        <!-- End Nested Comment -->
-                        </div>
-                    </div>
+                    @endif
                 </div>
-
-
-        @endforeach
-
-    @endif
+        </div>
+            @endforeach
+        @endif
 </div>
+
+
 
 @endsection
 
 @section('script')
     <script>
         $(".toggle-reply").click(function(){
-            $(".comment-reply").slideToggle('slow');
+            $(this).next().slideToggle("slow");
         });
-
-
     </script>
 
 
