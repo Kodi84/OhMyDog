@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,7 +20,8 @@ class PostCommentsController extends Controller
     public function index()
     {
         //
-        return view ('admin.comments.index');
+        $comment = Comment::all();
+        return view ('admin.comments.index',compact('comment'));
     }
 
     /**
@@ -64,6 +66,10 @@ class PostCommentsController extends Controller
     public function show($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $comment = $post->comments;
+
+        return view('admin.comments.show',compact('comment'));
     }
 
     /**
@@ -87,6 +93,9 @@ class PostCommentsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $comment = Comment::findOrFail($id);
+        $comment->update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -98,5 +107,9 @@ class PostCommentsController extends Controller
     public function destroy($id)
     {
         //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return redirect()->back();
+
     }
 }

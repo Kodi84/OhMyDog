@@ -15,6 +15,8 @@
             <th>created</th>
             <th>updated</th>
             <th>Edit</th>
+            <th>View Post</th>
+            <th>View Comment</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,8 @@
                     <td>{{$posts->created_at->diffForHumans()}}</td>
                     <td>{{$posts->updated_at->diffForHumans()}}</td>
                     <td><a href="{{route('admin.posts.edit',$posts->id)}}">Edit</a></td>
+                    <td><a href="{{route('home.post',$posts->id)}}">View Post</a></td>
+                    <td><a href="{{route('admin.comments.show',$posts->id)}}">View Comment</a></td>
                 </tr>
             @endforeach
         @endif

@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(count($comment) > 0 )
     <h1>All Comments</h1>
     <table class="table">
         <thead>
-          <tr>
+        <tr>
             <th>Id</th>
             <th>Author</th>
             <th>Email</th>
             <th>Body</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-        @if(count($comment) > 0 )
             @foreach($comment As $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
@@ -24,11 +24,11 @@
                         @if($comment->is_active == 1)
                             {!! Form::open(['method'=>'PATCH','action'=>['PostCommentsController@update',$comment->id]]) !!}
                             <input type="hidden" name="is_active" value="0">
-                                <div class="form-group">
-                                    {!! Form::submit('Un-approve',['class'=>'btn btn-success']) !!}
-                                </div>
+                            <div class="form-group">
+                                {!! Form::submit('Un-approve',['class'=>'btn btn-success']) !!}
+                            </div>
                             {!! Form::close() !!}
-                            @else
+                        @else
 
                             {!! Form::open(['method'=>'PATCH','action'=>['PostCommentsController@update',$comment->id]]) !!}
                             <input type="hidden" name="is_active" value="1">
@@ -48,11 +48,14 @@
                 </tr>
             @endforeach
 
-        @endif
-
 
         </tbody>
+
     </table>
+    @else
+        <h1>This Post has no comment!</h1>
+    @endif
+
 @endsection
 
 
