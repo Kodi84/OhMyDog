@@ -62,5 +62,9 @@
             </div>
         </div>
     </div>
+    <div class="row text-center">
+        <h2>Please use the following to log in: cungtran2015@gmail.com
+            Pass : 123456</h2>
+    </div>
 </div>
 @endsection
