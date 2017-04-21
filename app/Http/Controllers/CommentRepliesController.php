@@ -110,6 +110,7 @@ class CommentRepliesController extends Controller
     public function destroy($id)
     {
         //
+
         $replies  = CommentReply::findOrFail($id);
         $replies -> delete();
         return redirect()->back();

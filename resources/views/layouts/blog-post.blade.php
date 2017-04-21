@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -38,88 +37,73 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="http://laravelcmsfinal.dev/">CMS with Laravel</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+            @if(!Auth::check())
+
+                <ul class="nav navbar-nav ">
+                    <li>
+                        <a href="http://laravelcmsfinal.dev/login">Login</a>
+                    </li>
+                </ul>
+            @endif
+            @if(Auth::check())
+                <ul class="nav navbar-top-links navbar-right">
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }}
+                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="{{route('admin.users.index')}}"><i class="fa fa-user fa-fw"></i>Admin</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+            @endif
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-
 <!-- Page Content -->
 <div class="container">
 
     <div class="row">
 
         <!-- Blog Post Content Column -->
-        @yield('content');
+        @yield('content')
 
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
-
-            <!-- Blog Search Well -->
-            <div class="well">
-                <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                </div>
-                <!-- /.input-group -->
-            </div>
-
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Blog Categories</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-
             <!-- Side Widget Well -->
-            <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+            <div class="well text-center">
+                <h4>CMS(Content Management System)</h4>
+                <p>A software application used to upload, edit, and manage content displayed on a website. A content management system can perform a variety of different tasks for a website including regulating when content is displayed, how many times the content is shown to a specific user, and managing how the content connects or interacts with other elements of the website
+                </p>
+            </div>
+            <div class="well text-center">
+                <h4>Please log in to experiment</h4>
+                <p>
+                    Please use the following to log in:
+
+                    cungtran2015@gmail.com
+                    <br>
+                    Pass : 123456
+                </p>
+
+                <h5>
+                    Note that: There are different roles you can create,<strong>ADMIN</strong> not only can be able to login. But also, can comment and reply.
+                </h5>
             </div>
 
         </div>

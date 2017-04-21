@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('web');
     }
 
     /**
@@ -25,8 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        return view('home');
-        $user = User::findOrFail(1);
-        return $user -> role;
+        $posts = Post::all();
+        return view('welcome',compact('posts'));
     }
 }
