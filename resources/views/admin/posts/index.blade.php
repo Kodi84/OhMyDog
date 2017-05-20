@@ -22,6 +22,7 @@
         <tbody>
         @if($posts)
             @foreach($posts As $posts)
+                @if($posts->user->name == Auth::user()->name)
                 <tr>
                     <td>{{$posts->id}}</td>
                     <td>{{$posts->user->name}}</td>
@@ -35,6 +36,7 @@
                     <td><a href="{{route('home.post',$posts->id)}}">View Post</a></td>
                     <td><a href="{{route('admin.comments.show',$posts->id)}}">View Comment</a></td>
                 </tr>
+                @endif
             @endforeach
         @endif
 

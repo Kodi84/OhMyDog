@@ -1,7 +1,7 @@
 @extends('layouts.blog-post')
 
 @section('content')
-<div class="col-lg-8">
+<div class="col-lg-12">
     @if(Session::has('reply_message'))
         <h3 class="bg-success">{{Session('reply_message')}}</h3>
     @endif
@@ -26,7 +26,7 @@
     <p>{{$post->body}}</p>
     <hr>
     <!-- Blog Comments -->
-    @if(Auth::check())
+    {{--@if(Auth::check())--}}
     <!-- Comments Form -->
     <div class="well">
         <h4>Leave a Comment:</h4>
@@ -111,7 +111,7 @@
             </div>
         </div>
             @endforeach
-    @endif
+    {{--@endif--}}
 @endif
 </div>
 @endsection

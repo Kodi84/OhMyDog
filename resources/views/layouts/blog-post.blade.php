@@ -84,29 +84,29 @@
         @yield('content')
 
         <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
-            <!-- Side Widget Well -->
-            <div class="well text-center">
-                <h4>CMS(Content Management System)</h4>
-                <p>A software application used to upload, edit, and manage content displayed on a website. A content management system can perform a variety of different tasks for a website including regulating when content is displayed, how many times the content is shown to a specific user, and managing how the content connects or interacts with other elements of the website
-                </p>
-            </div>
-            <div class="well text-center">
-                <h4>Please log in to experiment</h4>
-                <p>
-                    Please use the following to log in:
+        {{--<div class="col-md-4">--}}
+            {{--<!-- Side Widget Well -->--}}
+            {{--<div class="well text-center">--}}
+                {{--<h4>CMS(Content Management System)</h4>--}}
+                {{--<p>A software application used to upload, edit, and manage content displayed on a website. A content management system can perform a variety of different tasks for a website including regulating when content is displayed, how many times the content is shown to a specific user, and managing how the content connects or interacts with other elements of the website--}}
+                {{--</p>--}}
+            {{--</div>--}}
+            {{--<div class="well text-center">--}}
+                {{--<h4>Please log in to experiment</h4>--}}
+                {{--<p>--}}
+                    {{--Please use the following to log in:--}}
 
-                    cungtran2015@gmail.com
-                    <br>
-                    Pass : 123456
-                </p>
+                    {{--cungtran2015@gmail.com--}}
+                    {{--<br>--}}
+                    {{--Pass : 123456--}}
+                {{--</p>--}}
 
-                <h5>
-                    Note that: There are different roles you can create,<strong>ADMIN</strong> not only can be able to login. But also, can comment and reply.
-                </h5>
-            </div>
+                {{--<h5>--}}
+                    {{--Note that: There are different roles you can create,<strong>ADMIN</strong> not only can be able to login. But also, can comment and reply.--}}
+                {{--</h5>--}}
+            {{--</div>--}}
 
-        </div>
+        {{--</div>--}}
 
     </div>
     <!-- /.row -->

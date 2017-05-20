@@ -29,8 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        @if($users)
-            @foreach($users As $user)
+        @if($user)
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
@@ -42,7 +41,6 @@
                     <td>{{$user->updated_at->diffForHumans()}}</td>
                     <td><a href="{{route('admin.users.edit',$user->id)}}">Edit</a></td>
                 </tr>
-            @endforeach
         @endif
         </tbody>
     </table>
