@@ -42,12 +42,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">OH MY DOGS</a>
+            <a class="" href="http://laravelcmsfinal.dev/"><img class="img-responsive" src="{{'/images/logo.png'}}" alt=""></a>
         </div>
         <!-- /.navbar-header -->
-
-
-
         <ul class="nav navbar-top-links navbar-right">
 
 

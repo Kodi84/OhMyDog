@@ -8688,3 +8688,10 @@ table.dataTable thead .sorting:after {
     color: #df8a13;
 }
 /*# sourceMappingURL=libs.css.map */
+
+.navbar-inverse .navbar-nav > li > a {
+  padding-top: 25px;
+}
+.navbar-default > .navbar-header > a > img{
+  height:50px;
+}

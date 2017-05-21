@@ -10,7 +10,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://laravelcmsfinal.dev/"> OH MY DOGS </a>
+                <a class="" href="http://laravelcmsfinal.dev/"><img class="img-responsive" src="{{'/images/logo.png'}}" alt=""></a>
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -48,6 +49,16 @@
         </div>
         <!-- /.container -->
     </nav>
+
+
+
+
+
+
+
+
+
+
 
 
 @stop

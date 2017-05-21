@@ -23,6 +23,9 @@
         .fa-btn {
             margin-right: 6px;
         }
+        #app-navbar-collapse {
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -39,9 +42,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    OH MY DOGS
-                </a>
+                <a class="" href="http://laravelcmsfinal.dev/"><img class="img-responsive" src="{{'/images/logo.png'}}" alt=""></a>
+
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

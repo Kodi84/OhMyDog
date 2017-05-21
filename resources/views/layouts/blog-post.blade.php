@@ -37,13 +37,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://laravelcmsfinal.dev/">CMS with Laravel</a>
+            <a class="" href="http://laravelcmsfinal.dev/"><img class="img-responsive" src="{{'/images/logo.png'}}" alt=""></a>
+
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @if(!Auth::check())
 
-                <ul class="nav navbar-nav ">
+                <ul class="nav navbar-nav pull-right">
                     <li>
                         <a href="http://laravelcmsfinal.dev/login">Login</a>
                     </li>

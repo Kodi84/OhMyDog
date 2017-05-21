@@ -58,7 +58,6 @@
                 </h4>
                     <p>{{$comment->body}}</p>
 
-
                 <div class="comment-reply-container">
                     <button class="toggle-reply btn">reply</button>
                     <div class="comment-reply">
