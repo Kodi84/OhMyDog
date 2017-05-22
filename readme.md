@@ -1,27 +1,26 @@
-# Laravel PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+# Oh My Dog 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+![ohmydog](https://cloud.githubusercontent.com/assets/22993242/26288331/90e71250-3e44-11e7-8016-f26052a7bdd0.png)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+![ohmydog2](https://cloud.githubusercontent.com/assets/22993242/26288329/90aa72aa-3e44-11e7-9557-b5ab7f41922f.png)
 
-## Official Documentation
+![ohmydog3](https://cloud.githubusercontent.com/assets/22993242/26288330/90c58dec-3e44-11e7-8c25-b36c4152083e.png)
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Independently developed Web application based on "Dogs" themed. The Application enable users with creations and modification of content (CRUD). 
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### Details:
+* Use "Composer" to manage application dependencies. 
+* Knowledge Model - Migration - View - Controller in Laravel. 
+* Implementing Laravel Blade Templating engine to develop fully responsive application. 
+* Utilize different type of eloquent relationship. 
+* Set up middleware for security and protection.  
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+### Key Technologies:
+* HTML5
+* CSS3
+* Laravel 
+* Php 
+* Php tinker 
+* GitHub
