@@ -7,12 +7,12 @@
 
 ![ohmydog3](https://cloud.githubusercontent.com/assets/22993242/26288330/90c58dec-3e44-11e7-8c25-b36c4152083e.png)
 
-Independently developed Web application based on "Dogs" themed. The Application enable users with creations and modification of content (CRUD). 
+Independently developed Web application based on "Dogs" themed. The Application enables users with creations and modification of content (CRUD). 
 
 
 ### Details:
 * Use "Composer" to manage application dependencies. 
-* Knowledge Model - Migration - View - Controller in Laravel. 
+* Set up Model - Migration - View - Controller in Laravel. 
 * Implementing Laravel Blade Templating engine to develop fully responsive application. 
 * Utilize different type of eloquent relationship. 
 * Set up middleware for security and protection.  
