@@ -19,7 +19,7 @@
 
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="http://laravelcmsfinal.dev/login">Login</a>
+                            <a href="/login">Login</a>
                         </li>
                     </ul>
                 @endif
@@ -51,16 +51,6 @@
     </nav>
 
 
-
-
-
-
-
-
-
-
-
-
 @stop
 @section('content')
 
@@ -84,7 +74,3 @@
     @endif
 </div>
 @endsection
-
-{{--$post = Post::findOrFail($id);--}}
-{{--$comment = $post->comments()->where('is_active',1)->get();--}}
-{{--return view('post',compact('post','comment'));--}}
