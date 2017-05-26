@@ -19,7 +19,7 @@
 
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="{{ url('/login') }}">Login</a>
+                            <a href="/login">Login</a>
                         </li>
                     </ul>
                 @endif

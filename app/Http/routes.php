@@ -20,6 +20,10 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 
+Route::get('login', function(){
+    return view('auth.login');
+});
+
 Route::get('/post/{id}',['as'=>'home.post','uses'=>'AdminPostsController@post']);
 
 
